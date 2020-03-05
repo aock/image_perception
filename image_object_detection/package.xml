@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>image_object_detection</name>
+  <version>0.0.0</version>
+  <description>
+    This package provides foo capability.
+  </description>
+  <maintainer email="amock@uos.de">Alexander Mock</maintainer>
+  <license>BSD</license>
+
+  <url>http://ros.org/wiki/image_object_detection</url>
+  <author>Alexander Mock</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <depend>roscpp</depend>
+  <depend>rospy</depend>
+  <depend>sensor_msgs</depend>
+  <depend>image_perception_msgs</depend>
+  <depend>image_transport</depend>
+  <build_export_depend>boost</build_export_depend>
+
+</package>

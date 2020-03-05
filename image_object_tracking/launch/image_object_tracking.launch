@@ -1,0 +1,11 @@
+<launch>
+
+<node name="image_object_tracking_node"
+    type="image_object_tracking_node"
+    pkg="image_object_tracking"
+    output="screen">
+    <rosparam command="load" file="$(find image_object_tracking)/config/image_object_tracking.yaml" />
+</node>
+
+
+</launch>

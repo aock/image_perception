@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>image_object_tracking</name>
+  <version>0.0.0</version>
+  <description>
+    This package provides foo capability.
+  </description>
+  <maintainer email="amock@uos.de">Alexander Mock</maintainer>
+  <license>BSD</license>
+
+  <url>http://ros.org/wiki/image_object_tracking</url>
+  <author>Alexander Mock</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <depend>roscpp</depend>
+  <depend>rospy</depend>
+  <depend>image_perception_msgs</depend>
+
+</package>

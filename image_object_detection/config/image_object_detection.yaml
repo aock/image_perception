@@ -1,0 +1,30 @@
+modelName: FasterRCNNInceptionV2
+# CPU, OPENCL, OPENCL_FP16, MYRIAD, FPGA
+YoloV3Tiny:
+  scale: 0.00392
+  mean: [0.0, 0.0, 0.0]
+  swapRB: true
+  inputSize: [416, 416]
+  confidenceThreshold: 0.2
+  computingUnit: CPU
+YoloV3:
+  scale: 0.00392
+  mean: [0.0, 0.0, 0.0]
+  swapRB: true
+  inputSize: [416, 416]
+  confidenceThreshold: 0.2
+  computingUnit: CPU
+MobileNetSSD:
+  scale: 0.007843
+  mean: [127.5, 127.5, 127.5]
+  swapRB: false
+  inputSize: [300, 300]
+  confidenceThreshold: 0.2
+  computingUnit: CPU
+FasterRCNNInceptionV2:
+  scale: 1.0
+  mean: [0.0, 0.0, 0.0]
+  swapRB: false
+  inputSize: [800, 600]
+  confidenceThreshold: 0.5
+  computingUnit: CPU

@@ -1,0 +1,10 @@
+<launch>
+
+<node name="image_object_detection_node" 
+    type="image_object_detection_node" 
+    pkg="image_object_detection"
+    output="screen">
+    <rosparam command="load" file="$(find image_object_detection)/config/image_object_detection.yaml" />
+</node>
+
+</launch>

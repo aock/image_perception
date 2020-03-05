@@ -1,0 +1,5 @@
+forgetTime: 2.0
+rectErrorThresh: 0.5
+# possible: distance, intersection
+rectErrorMetric: intersection
+dynamicParams: true
