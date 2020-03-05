@@ -3,8 +3,6 @@
 ## Package Description
 This package deals with object detection on images on mobile autonomous platforms. It provides a collection of various well known object detection artificial neural network models, like YoloV3 or MobileNetSSD. The main node has the ability to load different object detection models from frameworks like Caffee, Tensorflow or Darknet. OpenCV is used as Wrapper for inference. The inference can executed on CPU or GPU depending on your OpenCV installation. Additionally, this package provides a node, which tracks the found objects and gives them an unique ID.
 
-![Image](/images/image_object_detection.png)
-
 ## Dependencies
 - Ros
 - Boost
