@@ -1,4 +1,4 @@
-# Image Object Detection in ROS (WIP)
+# Image Perception in ROS (WIP)
 
 ## Package Description
 This package deals with object detection on images on mobile autonomous platforms. It provides a collection of various well known object detection artificial neural network models, like YoloV3 or MobileNetSSD. The main node has the ability to load different object detection models from frameworks like Caffee, Tensorflow or Darknet. OpenCV is used as Wrapper for inference. The inference can executed on CPU or GPU depending on your OpenCV installation. Additionally, this package provides a node, which tracks the found objects and gives them an unique ID.
@@ -12,35 +12,40 @@ This package deals with object detection on images on mobile autonomous platform
 
 ### Download and Installation
 ```console
-foo@bar:~/catkin_ws/src$ git clone https://github.com/aock/image_object_detection.git
+foo@bar:~/catkin_ws/src$ git clone https://github.com/aock/image_perception.git
 foo@bar:~/catkin_ws/src$ cd ..
 foo@bar:~/catkin_ws$ catkin_make
 ```
 
-### Nodes and Launch-Files
-- image_object_detection_node
+### Subpackages
+- image_object_detection
   - find objects with a given dnn model
-- image_object_tracking_node
+  - example: image_object_detection.launch
+- image_object_tracking
   - track objects found by image_object_detection_node
-- image_object_vizualization_node
+  - example: image_object_tracking.launch
+- image_perception_vizualization
   - vizualizing raw labels and tracked objects
-- image_object_detection.launch
-  - starting all nodes
+  - TODO
+- image_perception_msgs
+  - Any message definition and conversion
+
+## Image Object Detection (image_object_detection)
 
 ### Download Model
 
 #### YoloV3Tiny:
 ```console
 foo@bar:~/catkin_ws$ roscd image_object_detection
-foo@bar:~/catkin_ws/src/image_object_detection$ cd models
-foo@bar:~/catkin_ws/src/image_object_detection/models$ . downloadYoloV3Tiny.sh
+foo@bar:~/catkin_ws/src/image_perception/image_object_detection$ cd models
+foo@bar:~/catkin_ws/src/image_perception/image_object_detection/models$ . downloadYoloV3Tiny.sh
 ```
 
 #### MobileNetSSD:
 ```console
 foo@bar:~/catkin_ws$ roscd image_object_detection
-foo@bar:~/catkin_ws/src/image_object_detection$ cd models
-foo@bar:~/catkin_ws/src/image_object_detection/models$ . downloadMobileNetSSD.sh
+foo@bar:~/catkin_ws/src/image_perception/image_object_detection$ cd models
+foo@bar:~/catkin_ws/src/image_perception/image_object_detection/models$ . downloadMobileNetSSD.sh
 ```
 
 ### Start
