@@ -32,6 +32,9 @@ foo@bar:~/catkin_ws$ catkin_make
 
 ## Image Object Detection (image_object_detection)
 
+- Subscribes to: /camera/image_raw
+- Publishes on: /image_object_detection_node/labels
+
 ### Download Model
 
 #### YoloV3Tiny:
