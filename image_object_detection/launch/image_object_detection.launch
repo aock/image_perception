@@ -7,4 +7,11 @@
     <rosparam command="load" file="$(find image_object_detection)/config/image_object_detection.yaml" />
 </node>
 
+<node name="image_object_visualization_node" 
+    type="image_object_visualization_node" 
+    pkg="image_object_detection"
+    output="screen">
+
+</node>
+
 </launch>

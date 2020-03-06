@@ -74,6 +74,26 @@ target_link_libraries(image_object_detection_node
     image_object_detection
 )
 
+add_executable(image_object_visualization_node
+    src/image_object_visualization_node.cpp
+)
+
+target_include_directories(image_object_visualization_node PUBLIC
+    include
+    ${catkin_INCLUDE_DIRS}
+    ${OpenCV_INCLUDE_DIRS}
+)
+
+add_dependencies(image_object_visualization_node
+    ${${PROJECT_NAME}_EXPORTED_TARGETS}
+    ${catkin_EXPORTED_TARGETS}
+)
+
+target_link_libraries(image_object_visualization_node
+    ${catkin_LIBRARIES}
+    ${OpenCV_LIBS}
+)
+
 # INSTALLING
 install(TARGETS image_object_detection
         ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}

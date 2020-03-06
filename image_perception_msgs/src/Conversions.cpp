@@ -133,16 +133,46 @@ cv::Mat ros_to_cv(
 sensor_msgs::ImagePtr cv_to_ros(
     const cv::Mat& img)
 {
-    // TODO without cv_bridge
+    sensor_msgs::ImagePtr ros_img = boost::make_shared<sensor_msgs::Image>();
 
-    // if(img.channels() == 3)
-    // {
-    //     return cv_bridge::CvImage(std_msgs::Header(), "bgr8", img).toImageMsg();
-    // } else if(img.channels() == 1) {
-    //     return cv_bridge::CvImage(std_msgs::Header(), "mono8", img).toImageMsg();
-    // } else {
-    //     throw std::runtime_error("unkown number of image channels");
-    // }
+    ros_img->header = std_msgs::Header();
+    ros_img->height = img.rows;
+    ros_img->width = img.cols;
+    
+    // SET ENCODING
+    if(img.channels() == 3)
+    {
+        ros_img->encoding = "bgr8";
+    } else if(img.channels() == 1) {
+        ros_img->encoding = "mono8";
+    } else {
+        throw std::runtime_error("unkown number of image channels");
+    }
+
+    ros_img->is_bigendian = (boost::endian::order::native == boost::endian::order::big);
+    ros_img->step = img.cols * img.elemSize();
+    size_t size = ros_img->step * img.rows;
+    ros_img->data.resize(size);
+
+
+    if (img.isContinuous())
+    {
+        memcpy((char*)(&ros_img->data[0]), img.data, size);
+    }
+    else
+    {
+        // Copy by row by row
+        unsigned char* ros_data_ptr = (unsigned char*)(&ros_img->data[0]);
+        unsigned char* cv_data_ptr = img.data;
+        for (int i = 0; i < img.rows; ++i)
+        {
+            memcpy(ros_data_ptr, cv_data_ptr, ros_img->step);
+            ros_data_ptr += ros_img->step;
+            cv_data_ptr += img.step;
+        }
+    }
+
+    return ros_img;
 }
 
 CvObject ros_to_cv(
