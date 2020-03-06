@@ -10,6 +10,7 @@ set(ROS_DEPS
     roscpp
     rospy
     image_perception_msgs
+    image_transport
 )
 
 find_package(catkin REQUIRED
@@ -66,6 +67,26 @@ add_dependencies(image_object_tracking_node
 target_link_libraries(image_object_tracking_node
     ${catkin_LIBRARIES}
     image_object_tracking
+)
+
+add_executable(image_object_tracking_visualization_node
+    src/image_object_tracking_visualization_node.cpp
+)
+
+target_include_directories(image_object_tracking_visualization_node PUBLIC
+    include
+    ${catkin_INCLUDE_DIRS}
+    ${OpenCV_INCLUDE_DIRS}
+)
+
+add_dependencies(image_object_tracking_visualization_node
+    ${${PROJECT_NAME}_EXPORTED_TARGETS}
+    ${catkin_EXPORTED_TARGETS}
+)
+
+target_link_libraries(image_object_tracking_visualization_node
+    ${catkin_LIBRARIES}
+    ${OpenCV_LIBS}
 )
 
 # INSTALLING

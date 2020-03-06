@@ -15,5 +15,6 @@
   <depend>roscpp</depend>
   <depend>rospy</depend>
   <depend>image_perception_msgs</depend>
+  <depend>image_transport</depend>
 
 </package>

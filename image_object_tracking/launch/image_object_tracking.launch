@@ -7,5 +7,11 @@
     <rosparam command="load" file="$(find image_object_tracking)/config/image_object_tracking.yaml" />
 </node>
 
+<node name="image_object_tracking_visualization_node"
+    type="image_object_tracking_visualization_node"
+    pkg="image_object_tracking"
+    output="screen">
+    
+</node>
 
 </launch>
